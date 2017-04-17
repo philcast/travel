@@ -1,0 +1,13 @@
+// Placez vos paramètres dans ce fichier pour remplacer les paramètres par défaut et les paramètres utilisateur.
+{
+  "editor.renderWhitespace": "none",
+  "editor.renderIndentGuides": true,
+  "editor.renderLineHighlight": "all",
+  "files.insertFinalNewline": true,
+  "editor.minimap.renderCharacters": true,
+  "editor.formatOnSave": true,
+  "editor.rulers": [
+    120
+  ],
+  "editor.tabSize": 2
+}

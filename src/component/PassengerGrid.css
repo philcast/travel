@@ -1,0 +1,36 @@
+@import '../variables.css';
+
+.passenger-grid {
+  display: flex;
+  margin-top: 2rem;
+  width: auto;
+}
+
+.headers {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  height: var(--grid-cell-height);
+  padding: 0 2rem;
+  color: white;
+  background-color: grey;
+  font-size: .9rem;
+  line-height: 2.65rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+}
+.action-header {
+  height: var(--grid-cell-height);
+  padding: 0 1rem;
+  color: white;
+  background-color: grey;
+  font-size: 1.5rem;
+  line-height: 2.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+}
