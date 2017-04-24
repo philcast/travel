@@ -1,5 +1,6 @@
 import Action, * as Actions from './actions';
 import { AppState, TravelState, PassengerState } from './model';
+import { moveElement } from 'utils/array';
 import * as uuid from 'uuid';
 
 const initialState = (): AppState => {
@@ -34,6 +35,8 @@ export function reducer(state: AppState = initialState(), action: Action) {
       return onInwardChanged(state, action);
     case 'PASSENGER_ADDED':
       return onPassengerAdded(state);
+    case 'PASSENGER_MOVED':
+      return onPassengerMoved(state, action);
     case 'PASSENGER_REMOVED':
       return onPassengerRemoved(state, action);
     case 'FIRST_NAME_CHANGED':
@@ -75,6 +78,11 @@ const onPassengerAdded = (state: AppState): AppState => {
     }
   };
 };
+
+const onPassengerMoved = (state: AppState, { fromIndex, toIndex }: Actions.PassengerMoved): AppState =>
+  updateTravel(state, {
+    passengers: moveElement(state.travel.passengers, fromIndex, toIndex)
+  });
 
 const onPassengerRemoved = (state: AppState, { passengerId }: Actions.PassengerRemoved): AppState => {
   const currentPassengerIds = state.travel.passengers;

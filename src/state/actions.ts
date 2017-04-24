@@ -6,6 +6,7 @@ type Action =
   | OutwardDateChanged
   | InwardDateChanged
   | PassengerAdded
+  | PassengerMoved
   | PassengerRemoved
   | FirstNameChanged
   | LastNameChanged
@@ -32,6 +33,11 @@ export interface InwardDateChanged {
 }
 export interface PassengerAdded {
   type: 'PASSENGER_ADDED';
+}
+export interface PassengerMoved {
+  type: 'PASSENGER_MOVED';
+  fromIndex: number;
+  toIndex: number;
 }
 export interface PassengerRemoved {
   type: 'PASSENGER_REMOVED';
@@ -75,6 +81,12 @@ export const inwardDateChanged = (inwardDate: Date): InwardDateChanged => ({
 
 export const passengerAdded = (): PassengerAdded => ({
   type: 'PASSENGER_ADDED'
+});
+
+export const passengerMoved = (fromIndex: number, toIndex: number): PassengerMoved => ({
+  type: 'PASSENGER_MOVED',
+  fromIndex,
+  toIndex
 });
 
 export const passengerRemoved = (passengerId: string): PassengerRemoved => ({
